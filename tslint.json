@@ -34,6 +34,8 @@
     "member-access": false,
     "member-ordering": [
       true,
+      "static-before-instance",
+      "variables-before-functions",
       {
         "order": [
           "static-field",
@@ -115,6 +117,18 @@
       "check-operator",
       "check-separator",
       "check-type"
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "my",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "my",
+      "kebab-case"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

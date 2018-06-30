@@ -1,0 +1,18 @@
+{
+	"editor.wordWrap": "off",
+	"files.exclude": {
+		"**/.vscode": {},
+		"**/node_modules": {},
+		"typings": {},
+		"**/*.map": {},
+		"**/*.js": {
+			"when": "$(basename).ts"
+		}
+	},
+	"files.autoSave": "off",
+	"editor.fontFamily": "'Courier New', Menlo, Monaco, monospace",
+	"editor.cursorStyle": "line",
+	"javascript.format.insertSpaceAfterConstructor": true,
+	"javascript.format.insertSpaceAfterCommaDelimiter": true,
+	"javascript.showUnused": true
+}
