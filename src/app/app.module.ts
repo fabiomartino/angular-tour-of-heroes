@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -15,6 +17,11 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { MessagesComponent } from './components/messages/messages.component';
 
+// AoT requires an exported function for factories
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,7 +32,14 @@ import { MessagesComponent } from './components/messages/messages.component';
       dataEncapsulation: false,
       delay: 300,
       passThruUnknownUrl: true
-    })
+    }),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+  })
   ],
   declarations: [
     AppComponent,

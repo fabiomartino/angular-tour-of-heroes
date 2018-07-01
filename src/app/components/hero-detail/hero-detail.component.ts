@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Hero } from '../../models/heroes.model';
 import { HeroService } from '../../services/hero.service';
@@ -16,7 +17,8 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location
+    private location: Location,
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {

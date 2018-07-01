@@ -8,6 +8,7 @@ import {
 
 import { Hero } from '../../models/heroes.model';
 import { HeroService } from '../../services/hero.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero-search',
@@ -18,7 +19,10 @@ export class HeroSearchComponent implements OnInit {
   heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private heroService: HeroService,
+    private translate: TranslateService
+  ) {}
 
   // Push a search term into the observable stream.
   search(term: string): void {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Hero } from '../../models/heroes.model';
 import { HeroService } from '../../services/hero.service';
@@ -11,7 +12,10 @@ import { HeroService } from '../../services/hero.service';
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.getHeroes();
@@ -25,7 +29,7 @@ export class HeroesComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
+    this.heroService.addHero({ name } as Hero, this.heroes.length)
       .subscribe(hero => {
         this.heroes.push(hero);
       });

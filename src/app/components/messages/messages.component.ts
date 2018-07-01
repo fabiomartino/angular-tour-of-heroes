@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from '../../services/message.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { MessageService } from '../../services/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService) { }
+  constructor(
+    public messageService: MessageService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
   }
