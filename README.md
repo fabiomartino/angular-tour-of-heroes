@@ -18,3 +18,6 @@ Implement [ngx-translate](https://github.com/ngx-translate)
 
 `npm install @ngx-translate/http-loader --save`
 
+## Add Angular material and Flex Layout
+
+`npm install @angular/material @angular/cdk @angular/flex-layout --save`
